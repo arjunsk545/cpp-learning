@@ -51,6 +51,65 @@ bool findDuplicate(int arr[], int size)
     return true;
 }
 
+void reverseInteger(int num)
+{
+    int newNum = 0;
+    int temp = 0;
+    while(num != 0)
+    {
+        temp = num%10;
+        num = num/10;
+        
+        newNum = (newNum * 10) + temp;
+    }
+    
+    cout<<newNum<<endl;
+}
+
+bool Palindrome(string name)
+{
+    int left = 0;
+    int right = name.length() - 1;
+    
+    while(left < right)
+    {
+        if(name[left] != name[right])
+        {
+            cout<< "It is not a Palindrome"<<endl;
+            return false;
+        }
+        
+        left++;
+        right--;
+    }
+    cout<< "It is a Palindrome" <<endl;
+    return true;
+}
+
+void integerPalindrome(int num)
+{
+    int temp = 0;
+    int newNum = 0;
+    int cachedNum = num;
+    
+    while(num != 0)
+    {
+        temp = num%10;
+        num = num/10;
+        
+        newNum = (newNum * 10) + temp;
+    }
+    
+    if(newNum == cachedNum)
+    {
+        cout<< "It is a Palindrome"<<endl; 
+    }
+    else
+    {
+        cout<< "Not a Palindrome"<<endl;
+    }
+}
+
 int main()
 {
     reverseString("Hello");
@@ -58,4 +117,7 @@ int main()
     largestNumber(arr, sizeof(arr)/sizeof(arr[0]));
     int arr2[5] = {1,2,1,4,5};
     findDuplicate(arr2, sizeof(arr2)/sizeof(arr2[0]));
+    reverseInteger(1234);
+    Palindrome("ARAI");
+    integerPalindrome(121);
 }
